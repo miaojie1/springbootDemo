@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String index() {
-        return "Hello World";
+        return "Hello World1";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.POST)
