@@ -20,8 +20,14 @@ public interface StudentService {
      * @param stuNum 学号
      * @return student
      */
-    Student findByStuNum(String stuNum);
+    List<Student> findByStuNum(String stuNum);
 
+    /**
+     * 通过学号模糊查找
+     * @param stuNum
+     * @return
+     */
+    List<Student> findByStuNumLike(String stuNum);
     /**
      * 保存
      * @param student 学生实体类

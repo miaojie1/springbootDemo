@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.Result;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.StudentService;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.image.RescaleOp;
 import java.util.List;
 
 /**
@@ -32,8 +30,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findByStuNum(String stuNum) {
+    public List<Student> findByStuNum(String stuNum) {
         return studentRepository.findByStuNum(stuNum);
+    }
+
+    @Override
+    public List<Student> findByStuNumLike(String stuNum){
+        return studentRepository.findByStuNumLike(stuNum);
     }
 
     @Override

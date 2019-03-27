@@ -26,6 +26,20 @@ public class StudentController {
         return new Result(200, "成功", studentList);
     }
 
+    @GetMapping("/searchStudentList")
+    public List<Student> searchStudents(@RequestParam(value = "stuNum") String stuNum) {
+        List<Student> students = studentService.findByStuNumLike(stuNum);
+        return students;
+    }
+
+    @GetMapping("/searchStudent")
+    public List<Student> searchStudent(@RequestParam(value = "stuNum") String stuNum) {
+        if (stuNum == "") {
+            return studentService.findAll();
+        }
+        return studentService.findByStuNum(stuNum);
+    }
+
     @PostMapping("/insertStudent")
     public Result save(@RequestBody Student student) {
         Student stuResult = studentService.save(student);
@@ -35,7 +49,7 @@ public class StudentController {
         return new Result(500, "保存失败");
     }
 
-    @DeleteMapping("/deleteStudent")
+    @PostMapping("/deleteStudent")
     public Result delete(@RequestBody Student student){
         Boolean stuResult = studentService.delOne(student);
         if (stuResult){
