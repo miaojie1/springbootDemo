@@ -28,17 +28,10 @@ public class StudentController {
 
     @GetMapping("/searchStudentList")
     public List<Student> searchStudents(@RequestParam(value = "stuNum") String stuNum) {
-        List<Student> students = studentService.findByStuNumLike(stuNum);
+        List<Student> students = studentService.findBySpeci(stuNum);
         return students;
     }
 
-    @GetMapping("/searchStudent")
-    public List<Student> searchStudent(@RequestParam(value = "stuNum") String stuNum) {
-        if (stuNum == "") {
-            return studentService.findAll();
-        }
-        return studentService.findByStuNum(stuNum);
-    }
 
     @PostMapping("/insertStudent")
     public Result save(@RequestBody Student student) {

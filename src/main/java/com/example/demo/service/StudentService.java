@@ -15,19 +15,7 @@ public interface StudentService {
      */
     List<Student> findAll();
 
-    /**
-     * 通过学号查询
-     * @param stuNum 学号
-     * @return student
-     */
-    List<Student> findByStuNum(String stuNum);
 
-    /**
-     * 通过学号模糊查找
-     * @param stuNum
-     * @return
-     */
-    List<Student> findByStuNumLike(String stuNum);
     /**
      * 保存
      * @param student 学生实体类
@@ -42,5 +30,12 @@ public interface StudentService {
      * @return boolean
      */
     boolean delOne(Student student);
+
+    /**
+     * 动态构建sql 模糊查询
+     * @param stuNum 学号
+     * @return 学生list
+     */
+    List<Student> findBySpeci(String stuNum);
 
 }
